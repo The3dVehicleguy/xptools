@@ -1944,7 +1944,7 @@ struct	preview_road : WED_PreviewItem {
 WED_PreviewLayer::WED_PreviewLayer(GUI_Pane * host, WED_MapZoomerNew * zoomer, IResolver * resolver) :
 	WED_MapLayer(host, zoomer, resolver),
 	mPavementAlpha(1.0f),
-	mObjDensity(6),
+	mObjDensity(6), // value to adjust the number of segments used to render a curved line in the WED 3D Preview window???
 	mRunwayLayer(group_RunwaysBegin),
 	mTaxiLayer(group_TaxiwaysBegin),
 	mShoulderLayer(group_ShouldersBegin)
@@ -2084,14 +2084,14 @@ bool		WED_PreviewLayer::DrawEntityVisualization		(bool inCurrent, IGISEntity * e
 			string vpath;
 			const lin_info_t* lin_info;
 			int lg = group_Markings;
-			double lwidth = 0.4;
+			double lwidth = 0.04;
 			WED_ResourceMgr* rmgr = WED_GetResourceMgr(GetResolver());
 
 			line->GetResource(vpath);
 			if (!vpath.empty() && rmgr->GetLin(vpath, lin_info))
 			{
 				lg = layer_group_for_string(lin_info->group.c_str(), lin_info->group_offset, lg);
-				lwidth = max(0.4, lin_info->eff_width * 0.5);
+				lwidth = max(0.04, lin_info->eff_width * 0.5);
 			}
 			// criteria matches where mRealLines disappear in StructureLayer
 			if(PixelSize(line, lwidth, GetZoomer()) > mOptions.minLineThicknessPixels)
@@ -2102,7 +2102,7 @@ bool		WED_PreviewLayer::DrawEntityVisualization		(bool inCurrent, IGISEntity * e
 	{
 		if(auto chn = dynamic_cast<WED_AirportChain*>(entity))
 			// criteria matches where mRealLines disappear in StructureLayer
-			if(PixelSize(chn, 0.4, GetZoomer()) > mOptions.minLineThicknessPixels)
+			if(PixelSize(chn, 0.04, GetZoomer()) > mOptions.minLineThicknessPixels)
 			{
 				mPreviewItems.push_back(new preview_airportlines(chn, group_Markings, GetResolver()));
 				mPreviewItems.push_back(new preview_airportlights(chn, group_Objects, GetResolver()));

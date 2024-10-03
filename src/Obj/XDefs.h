@@ -64,13 +64,13 @@
 
 // I am beta testing CGAL's polygon simplifier (which is a freaking AWESOME package btw) but can't check the code in until they release it.  So this
 // #ifs out code that depends on the module.
-#define	CGAL_BETA_SIMPLIFIER 0
+#define	CGAL_BETA_SIMPLIFIER 1
 
 // Road-grid editor - this if good for editing XP11 style road networks with vroads, only
 #define ROAD_EDITING 1
 
 // Ashow user menu setting for rowcode 105, i.e. extended runway properties. Enable only when XP is ready to read them.
-#define ROWCODE_105 0
+#define ROWCODE_105 1
 
 // mroe : -- really early stage of dev , do not change.
 #define WITHNWLINK 0
@@ -99,7 +99,7 @@
 #define HAS_CURVED_ATC_ROUTE 0
 
 // This enables proposed subtypes for airport boundaries. apt.dat read/write NOT yet implemented.
-#define HAS_BDY_TYPES 0
+#define HAS_BDY_TYPES 1
 
 // Load BC1-BC5 textures in DDS format directly into GPU w/o de- & re-compressing
 #define LOAD_DDS_DIRECT 1

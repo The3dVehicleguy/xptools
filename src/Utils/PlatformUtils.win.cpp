@@ -26,6 +26,7 @@
 #include "PlatformUtils.h"
 #include <shlobj.h>
 #include <stdio.h>
+#include <time.h>
 
 string GetApplicationPath()
 {

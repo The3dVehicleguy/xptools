@@ -34,7 +34,6 @@
 	#include <GL/gl.h>
 #endif
 
-
 WED_ATCLayer::WED_ATCLayer(GUI_Pane * host, WED_MapZoomerNew * zoomer, IResolver * resolver) :
 	WED_MapLayer(host, zoomer, resolver)
 {

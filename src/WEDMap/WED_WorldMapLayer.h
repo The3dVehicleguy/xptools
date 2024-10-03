@@ -27,6 +27,9 @@
 #include "WED_MapLayer.h"
 class ITexMgr;
 
+/**
+ * This class represents a world map layer in the game. It inherits from the WED_MapLayer class and provides additional functionality for drawing visualizations.
+ */
 class WED_WorldMapLayer : public WED_MapLayer {
 public:
 

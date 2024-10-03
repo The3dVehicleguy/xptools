@@ -39,6 +39,11 @@
 	#include <GL/gl.h>
 #endif
 
+/*
+ * Constructor for the World Map Layer. This layer uses a texture manager to load
+ * and manage textures used in rendering the world map. It also loads textures
+ * from a specific location within the X-Plane package.
+ */
 WED_WorldMapLayer::WED_WorldMapLayer(GUI_Pane * host, WED_MapZoomerNew * zoomer, IResolver * resolver) :
 	WED_MapLayer(host,zoomer,resolver)
 {
@@ -105,7 +110,6 @@ void		WED_WorldMapLayer::DrawVisualization		(bool inCurrent, GUI_GraphState * g)
 				if(tref)
 				{
 					int tex_id = mTexMgr->GetTexID(tref);
-					if (tex_id)
 					{
 						g->BindTex(tex_id, 0);
 						glBegin(GL_TRIANGLE_STRIP);

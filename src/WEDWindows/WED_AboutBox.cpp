@@ -30,7 +30,7 @@
 #include "BitmapUtils.h"
 #include "WED_Version.h"
 
-static int aboutbox_bounds[4] = { 0, 0, 600, 420};
+static int aboutbox_bounds[4] = { 0, 0, 800, 520};
 
 WED_AboutBox::WED_AboutBox(GUI_Commander * cmdr) : GUI_Window("About WED", xwin_style_movable | xwin_style_centered | xwin_style_popup , aboutbox_bounds, cmdr)
 {
@@ -59,9 +59,15 @@ void		WED_AboutBox::Draw(GUI_GraphState * state)
 	float f = GUI_GetLineHeight(font);
 	float * color = WED_Color_RGBA(wed_Table_Text);
 
-	const char * main_text[] = {
-		"WorldEditor " WED_VERSION_STRING_SHORT,
+	const char* main_text[] = {
+		"WorldEditor " WED_VERSION_STRING_SHORT " -- ""Relics Custom Editor",
 		WED_COPYRIGHT_STRING,
+		"",
+		"This version of WED is a highly modified version of the ",
+		"current X - Plane WorldEditor.",
+		"To keep up with the changes and are interested ",
+		"please see my Github: https://github.com/The3dVehicleguy/xptools",
+		"",
 		"",
 		"This software is available under an open license,",
 		"for more info see http://developer.x-plane.com/code",
@@ -92,7 +98,7 @@ void		WED_AboutBox::Draw(GUI_GraphState * state)
 	" with TYLER_MODE"
 #endif
 	;
-
+	/*
 	GUI_FontDraw(state, font, color,
 		(bounds[0] + bounds[2]) * 0.5,
 		bounds[1] * 0.75 + bounds[3] * 0.25,
@@ -117,6 +123,7 @@ void		WED_AboutBox::Draw(GUI_GraphState * state)
 			credits[n],align_Center);
 		++n;
 	}
+	*/
 }
 
 int			WED_AboutBox::MouseDown(int x, int y, int button)
